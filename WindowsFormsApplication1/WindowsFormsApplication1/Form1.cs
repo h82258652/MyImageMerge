@@ -23,11 +23,14 @@ namespace WindowsFormsApplication1
             OpenFileDialog ofd = new OpenFileDialog();
             SaveFileDialog sfd = new SaveFileDialog();
 
+            ofd.Multiselect = true;
             var oResult= ofd.ShowDialog();
             if (oResult==DialogResult.OK)
             {
                 var files = ofd.FileNames;
-
+                var temp1 = files.ToList();
+                temp1.Sort();
+                files = temp1.ToArray();
 
                 Bitmap[] bitmaps = new Bitmap[files.Length];
 
